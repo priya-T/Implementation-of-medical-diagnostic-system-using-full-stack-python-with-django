@@ -1,0 +1,55 @@
+.topnav {
+    overflow: hidden;
+    background-color:rgb(126, 118, 118);
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .header {
+    background-color:rgb(160, 243, 188);
+    padding: 2px;
+    color:rgb(168, 15, 199);
+    background-image:url("Logo-4.jpg");
+    background-size:280px 90px;
+    background-repeat: no-repeat;
+    background-position:top left;
+    text-align: center;
+  }
+  
+  input , textarea {
+    width:70%;
+    padding:5px!important;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box; 
+    border-radius:3px;
+    border-style:solid;
+    border-width:1px;
+    border-color:rgb(169,169,169)
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav a.logout {
+    float:right;
+  }
+  
+  
+
+
+
+  .topnav a:hover {
+    background-color: rgb(243, 240, 240);
+    color: rgb(105, 99, 99);
+  }
+  
