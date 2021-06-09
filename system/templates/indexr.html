@@ -1,0 +1,13 @@
+{% extends "base2.html" %}
+{% block title %}
+report
+{% endblock %}
+{% block content %}
+<h3>Enter Test Report Details</h3>
+<form method = "post" enctype="multipart/form-data"> 
+        {% csrf_token %} 
+        {{ form.as_p }} 
+        <button type="submit">submit</button> 
+    </form> 
+
+{% endblock %}

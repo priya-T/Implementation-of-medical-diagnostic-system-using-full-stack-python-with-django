@@ -1,0 +1,67 @@
+{% extends "base2.html" %}
+{% block title %}
+edit report
+{% endblock %}
+{% block content %}
+<form method="POST" class="post-form" action="/updater/{{testreport.id}}">  
+    {% csrf_token %}  
+<div class="container">  
+<br>  
+<div class="form-group row">  
+<label class="col-sm-1 col-form-label"></label>  
+<div class="col-sm-4">  
+<h3>Update Test Report Details</h3>  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">Report Id:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="id" id="id_id" required maxlength="20" value="{{ testreport.id }}"/>  
+</div>  
+</div>  
+<!--<div class="form-group row">  
+<label class="col-sm-2 col-form-label">Doctor Id:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="DoctorId" id="id_DoctorId" required maxlength="100" value="{{ testreport.DoctorId }}" />  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">Appointment Id:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="appointmentId" id="id_appointmentId" required maxlength="254" value="{{ testreport.appointmentId}}" />  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">Test Name:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="mobile" id="id_test" required maxlength="15" value="{{ testreport.test }}" />  
+</div>  
+</div>--> 
+<div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Test Result:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="Test_result" id="id_Test_result" required maxlength="15" value="{{ testreport.Test_result }}" />  
+    </div>  
+    </div>  
+    <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Other Charge:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="OtherCharge" id="id_OtherCharge"  value="{{ testreport.OtherCharge }}" />  
+        </div>  
+        </div>    
+        <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">Total:</label>  
+            <div class="col-sm-4">  
+                <input type="text" name="total" id="id_total"  value="{{ testreport.total }}" />  
+            </div>  
+            </div>  
+<div class="form-group row">  
+<label class="col-sm-1 col-form-label"></label>  
+<div class="col-sm-4">  
+<button type="submit" class="btn btn-success">Update</button>  
+</div>  
+</div>  
+</div>  
+</form>  
+</body>  
+{% endblock %}

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'frontp.css' %}"/>
+    
+</head>
+
+<div class="header">
+<h1>MEDICAL DIAGNOSTIC SYSTEM</h1>
+<h4 style="position: absolute ;left:1100px;top:40px;color:gray;">Call us@ 8210098765</h4>
+</div>
+<body>
+<div class="topnav">
+    <a href="/home" class="active">Home</a>
+    <a href="/about">Services</a>
+    <a href="/contact">Contact us</a>
+    <a href="/login" >Admin</a>
+    <a href="/plogin" >Patient</a>
+    <a href="/signup" >signup</a>
+    
+</div>
+
+<div class="body-content">
+        {% block content %}
+    
+        {% endblock %}
+        
+</div>   
+
+
+
+</div>
+
+</body>
+</html>

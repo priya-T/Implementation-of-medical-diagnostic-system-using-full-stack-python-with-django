@@ -1,0 +1,43 @@
+{% extends "base3.html" %} 
+{% block title %}
+doctor details
+{% endblock %}
+{% block content %}
+<style>
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  table {
+    width: 70%;
+  }
+  </style>
+<center>
+    <h1 class="con">Doctor Details</h1> 
+    <table id="styletab">
+        <thead class="thead-dark">  
+            <tr>
+                <th>Doctor Id</th>
+      <th>Name</th>
+      <th>Department</th>
+    <th>Address</th>
+    <th>Mobile</th>
+    <th>Profile Pic</th>
+</tr>  
+</thead>
+<tbody>  
+    <tr><td>{{doctor.id}}</td>
+        <td>{{ doctor.Doctor_name }}</td>
+      <td>{{ doctor.department }}</td>
+      <td>{{doctor.address}} </td>
+      <td>{{doctor.mobile}}</td>
+      <td>{%if doctor.profile_pic %}
+        <img src="{{ doctor.profile_pic.url}}"  alt="Profile Pic" height="125px" width="125px" /> 
+        {% endif %}
+    </td> 
+    </tr>
+   </tbody>
+   </table>
+   <a href="/showa" target="blank"><strong><== Back</strong></a> 
+  </center>
+{% endblock %}

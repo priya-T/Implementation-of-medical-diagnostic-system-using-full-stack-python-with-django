@@ -1,0 +1,38 @@
+{% extends "base2.html" %}
+{% block title %}
+tests
+{% endblock %}
+{% block content %}
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    
+    table {
+      width: 70%;
+    }
+    </style>
+<center>
+    <h1 class="con">All Tests</h1> 
+     {% if test_list %}  
+     <table> 
+
+       <tr>
+           <th>Test ID</th>
+           <th>Test Name</th>
+        <th>Test type</th>
+           <th>Test Fee(Rs)</th></tr>      
+              <tr>   
+          {% for test in test_list %}     
+          <tr> 
+              <td>{{test.id}}</td>      
+              <td> {{ test.Test_name }}</td> 
+              <td>{{test.Test_type}}</td>
+              <td>{{test.Test_fee}}</td> 
+           </tr>   
+           {% endfor %}   
+           </table>
+       </center>
+       {% endif %}     
+   
+   {% endblock %}

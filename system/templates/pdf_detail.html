@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Report.id.{{obj.id}}</title>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Report.id.{{ obj.id}}</title>
+      </head>
+        <style>
+          .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            /*border: 1px solid #eee;*/
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
+          }
+      
+          .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+          }
+      
+          .invoice-box table td {
+            padding: 8px;
+            vertical-align: top;
+          }
+      
+          .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+          }
+      
+          .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+          }
+      
+          .invoice-box table tr.top table td.title {
+            font-size: 25px;
+            line-height: 40px;
+            color: rgb(98, 23, 141);
+            padding-bottom: 1px;
+          }
+      
+          .invoice-box table tr.information table td {
+            padding-bottom: 20px;
+            color:rgb(9, 12, 10)
+          }
+          .invoice-box table tr.info table td {
+            padding-bottom: 20px;
+            color: rgb(231, 71, 124);
+          }
+      
+          .invoice-box table tr.heading td {
+            background: rgb(204, 198, 198);
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+          }
+      
+          .invoice-box table tr.details td {
+            padding-bottom: 30px;
+          }
+      
+          .invoice-box table tr.item td {
+            border-bottom: 1px solid #eee;
+          }
+      
+          .invoice-box table tr.item.last td {
+            border-bottom: none;
+          }
+      
+          .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+          }
+      
+          @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+              width: 100%;
+              display: block;
+              text-align: center;
+            }
+      
+            .invoice-box table tr.information table td {
+              width: 100%;
+              display: block;
+              text-align: center;
+            }
+          }
+      
+          /** RTL **/
+          .rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+          }
+      
+          .rtl table {
+            text-align: right;
+          }
+      
+          .rtl table tr td:nth-child(2) {
+            text-align: left;
+          }
+      
+          .menu {
+            top: 50px;
+          }
+        </style>
+      </head>
+      
+      <br><br><br>
+      <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+          <tr class="top">
+            <td colspan="2">
+              <table>
+                <tr>
+                  <td class="title">
+                    <h2>Lab Care Medical Diagnostic Center</h2>
+                  </td>
+                  
+                  
+                </tr>
+              </table>
+            </td>
+          </tr>
+      
+          <tr class="info">
+            <td colspan="2">
+              <table>
+                <tr>
+                  <td>
+                    Address:<br>
+                    Building No#45 ,JK Road ,Shimoga -577201<br>
+                    Call Us @8217445581
+                   
+                  </td>
+                   
+                  
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr class="information">
+            <td colspan="2">
+              <table>
+                <tr>
+                  <td>
+                    Patient ID :{{obj.appointmentId.PatientId}}<br>
+                    Patient Name : {{obj.appointmentId.patientName}}<br>
+                    Patient Mobile : {{obj.patientId.mobile}}<br>
+                    Patient Address : {{obj.patientId.location}}<br>
+                   
+                  </td>
+                   
+                  <td>
+                    Appointment Date: {{obj.appointmentId.appointmentDate}}<br>
+                    Appointment ID: {{obj.appointmentId.id}}<br>
+                    Doctor ID :{{obj.DoctorId.id}}<br>
+                    Referred by :{{obj.DoctorId.Doctor_name}}<br>
+                    Designation :{{obj.DoctorId.department}}
+      
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <table>
+          <tr class="heading">
+            <td>
+               Symptoms 
+            </td>
+            
+           
+        </tr>
+        </table>
+        <table>
+        <tr class="details">
+            <td>
+                {{obj.appointmentId.description}}
+            </td>
+            
+        </tr>
+        </table>
+        </table>
+        <table>
+          <tr class="heading">
+            <td>
+               Result
+            </td>
+            
+           
+        </tr>
+        </table>
+        <table>
+        <tr class="details">
+            <td>
+                {{obj.Test_result}}
+            </td>
+            
+        </tr>
+        </table>
+        </table>
+      
+          <table>
+        <tr class="heading">
+            <td>
+               Description
+            </td>
+            
+            <td>
+                Price(Rs)
+            </td>
+        </tr>
+        </table>
+        <table>
+        <tr class="item">
+            <td>
+                Test Fee
+            </td>
+            
+            <td>
+                {{obj.test.Test_fee}}
+            </td>
+        </tr>
+        </table>
+        <table>
+        <tr class="item">
+            <td>
+                Other Charges
+            </td>
+            
+            <td>
+                {{obj.OtherCharge}}
+            </td>
+        </tr>
+        </table>
+        <table>
+          <tr class="item">
+              <td>
+                  Total Charges
+              </td>
+              
+              <td>
+                 Rs. {{obj.total}}/-
+              </td>
+          </tr>
+          </table>
+        
+    </table>
+</div>
+</body>
+</html>

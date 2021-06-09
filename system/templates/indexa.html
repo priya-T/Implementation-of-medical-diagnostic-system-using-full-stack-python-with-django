@@ -1,0 +1,13 @@
+{% extends "base3.html" %}
+{% block title %}
+appointment
+{% endblock %}
+{% block content %}
+<h3>Book your appointment</h3>
+<p>Type in Patient ID as "{{user.id}}" and Patient Name as "{{user.first_name}}"</p>
+<form method = "post"> 
+        {% csrf_token %} 
+        {{ form.as_p }}  
+        <input type="submit" value="submit"></button> 
+    </form> 
+{% endblock %}

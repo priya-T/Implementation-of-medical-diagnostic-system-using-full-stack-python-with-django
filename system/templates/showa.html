@@ -1,0 +1,59 @@
+{% extends "base3.html" %}
+{% block title %}
+appointments
+{% endblock %}
+{% block content %}
+<style>
+    table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  width: 70%;
+}
+</style>
+<body> 
+    <center><h1>All Appointments</h1>
+        
+        {% if appointments %}
+    <table>  
+        <thead class="thead-dark">  
+        <tr> 
+            <th>Appointment ID</th>
+            <th>Patient ID</th>  
+            <th>Patient Name</th>  
+            <th>Appointment Date</th>  
+            <th>Description</th>
+            <th>Doctor Details</th>
+            <th>Status</th>
+            <th>Actions</th>  
+        </tr>  
+        </thead>  
+        <tbody>  
+    {% for appointment in appointments %}  
+        <tr> 
+            <td>{{appointment.id}}</td>
+            <td>
+                {{appointment.PatientId}}
+            </td>
+            <td>{{appointment.patientName }}</td>  
+            <td>{{appointment.appointmentDate}}</td>  
+            <td>{{appointment.description}}</td> 
+            <td>
+                <a href='doctor/{{appointment.doctorId.pk}}'>{{appointment.doctorId.id}}</a></td>
+                <td><mark>{{appointment.status}}</mark></td> 
+              <td>  
+                <a href="/deletea/{{appointment.id }}">Delete</a>  
+            </td> 
+        </tr>  
+    {% endfor %}  
+    
+        </tbody>  
+    </table>  
+    {% else %}
+    <p>There are no appointments</p>
+  {% endif %}  
+  
+    </center>
+    </body>  
+{% endblock %}

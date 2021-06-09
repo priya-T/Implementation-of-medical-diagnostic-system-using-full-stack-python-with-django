@@ -1,0 +1,66 @@
+{% extends "base3.html" %}
+{% block title %}
+show report
+{% endblock %}
+{% block content %}
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    
+    table {
+      width: 70%;
+    }
+    </style>
+<body> 
+    <center><h1>All Test Reports</h1>
+        {% if testreports %}
+    <table>  
+        <thead class="thead-dark">  
+        <tr> 
+            <th>Test Report ID</th>
+            <th>Doctor Id</th>  
+            <th>Doctor Name</th> 
+            <th>Designation</th> 
+            <th>Appointment ID</th>
+            <th>Appointment Date</th>
+            <th>Symptoms</th>
+            <th>Test Name</th>
+            <th>Test type</th>
+            <th>Test Result</th>
+            <th>Test Fee</th>
+            <th>other Charge</th>
+            <th>Total</th>
+            <th>Download</th>
+            
+            
+
+        </tr>  
+        </thead>  
+        <tbody>  
+    {% for testreport in testreports %}  
+        <tr> 
+            <td>{{testreport.id}}</td>
+            <td>{{testreport.DoctorId}}</td>  
+            <td>{{testreport.DoctorId.Doctor_name}}</td> 
+            <td>{{testreport.DoctorId.department}}</td> 
+            <td>{{testreport.appointmentId.id}}</td>  
+            <td>{{testreport.appointmentId.appointmentDate}}</td> 
+            <td>{{testreport.appointmentId.description}}</td>
+            <td>{{testreport.test.Test_name}}</td>
+            <td>{{testreport.test.Test_type}}</td>
+            <td>{{testreport.Test_result}}</td>
+            <td>{{testreport.test.Test_fee}}</td>
+            <td>{{testreport.OtherCharge}}</td>
+            <td>{{testreport.total}}</td>
+            <td><a href="{{ testreport.id}}" >Report.id.{{ testreport.id}}. (pdf)</a></td>
+        </tr>  
+    {% endfor %}  
+        </tbody>  
+    </table>  
+    {% else %}
+    <p>There are no reports</p>
+  {% endif %}
+    </center>
+    </body>  
+{% endblock %}

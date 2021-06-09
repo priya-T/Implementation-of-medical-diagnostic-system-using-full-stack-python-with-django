@@ -1,0 +1,54 @@
+{% extends "base2.html" %}
+{% block title %}
+showp
+{% endblock %}
+{% block content %}
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    
+    table {
+      width: 80%;
+    }
+    </style>
+<center>
+<body>  
+    <h1>All Patients</h1>
+    <table>  
+        <thead class="thead-dark">  
+        <tr> 
+            <th>Patient ID</th>
+            <th>User ID</th>
+            <th>First Name </th>
+            <th>Last Name</th>
+            <th>Bio</th>  
+            <th>Address</th>  
+            <th>Birth date</th>  
+            <th>Mobile</th>
+            <th>Email</th>
+           
+        </tr>  
+        </thead>  
+        <tbody>  
+            {% for profile in profiles %}  
+        <tr> 
+            <td>{{profile.id}}</td>
+            <td>{{profile.user_id  }}</td>
+            <td>{{profile.user.first_name}}</td>
+            <td>{{profile.user.last_name}}</td>
+            <td>{{ profile.bio }}</td>  
+            <td>{{profile.location  }}</td>  
+            <td>{{profile.birth_date }}</td>   
+            <td>{{profile.mobile}}</td> 
+            <td>{{profile.email}}</td> 
+          
+           
+        </tr>  
+    {% endfor %}  
+        </tbody>  
+    </table>  
+    
+    </body>  
+    </center>
+{% endblock %}

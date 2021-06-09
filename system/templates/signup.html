@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Register{% endblock title %}
+  
+{% block content %}
+<u><h2 style="color:rgb(240, 107, 107);">Sign Up</h2></u>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+   <form  method="post">
+    {% csrf_token %}
+   <table>
+       {{ register_form.as_table }}
+    </form>
+       <tr>
+        
+           <td>&nbsp;</td>
+           <td><input type="submit" style="background-color:#60ca19; color:rgb(248, 248, 248); width:fit-content;" value="Submit">    If you already have an account, <a href="/plogin" target="blank"><strong>login</strong></a> instead.</td>
+       
+      
+           </tr>
+   </table>
+  
+      
+
+ 
+ {% endblock %}

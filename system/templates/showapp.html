@@ -1,0 +1,59 @@
+{% extends "base2.html" %}
+{% block title %}
+appointments
+{% endblock %}
+{% block content %}
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    
+    table {
+      width: 70%;
+    }
+    </style>
+<body> 
+    <center><h1>All Appointments</h1>
+        {% if appointments %}
+    <table >  
+        <thead class="thead-dark">  
+        <tr> 
+            <th>Appointment ID</th>
+            <th>Patient ID</th>  
+            <th>Patient Name</th>
+            <th>Appointment Date</th>  
+            <th>Description</th>
+            <th>Doctor ID</th>
+            <th>Doctor Name</th>
+            <th>Status</th>
+            <th>Approve/Reject</th>
+        </tr>  
+        </thead>  
+        <tbody>  
+    {% for appointment in appointments %}  
+        <tr> 
+            <td>{{appointment.id}}</td>
+            <td>{{appointment.PatientId}}</td> 
+            <td>{{appointment.patientName}}</td>
+            <td>{{appointment.appointmentDate}}</td>  
+            <td>{{appointment.description}}</td> 
+            <td>{{appointment.doctorId.id}} </td>
+            <td>{{appointment.doctorId.Doctor_name}} </td> 
+            <td><mark>{{appointment.status}}</mark></td>
+            
+            <form method="POST" class="post-form" action="/updatea/{{appointment.id}}">  
+                {% csrf_token %}  
+            <td><input type="submit" id="id_status"  name="status" value="rejected" style="color:red;width:100px;">
+    <input type="submit" id="id_status" value="approved"  name="status" style="color:green;width:100px;"></td>
+            </td>
+            </form>
+        </tr>  
+    {% endfor %}  
+        </tbody>  
+    </table>  
+    {% else %}
+    <p>There are no appointments</p>
+  {% endif %} 
+    </center>
+    </body>  
+{% endblock %}

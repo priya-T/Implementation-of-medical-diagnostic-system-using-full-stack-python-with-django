@@ -1,0 +1,61 @@
+{% extends "base2.html" %}
+{% block title %}
+edit doctor
+{% endblock %}
+{% block content %}
+<form method="POST" class="post-form" enctype="multipart/form-data" action="/update/{{doctor.id}}">  
+    {% csrf_token %}  
+<div class="container">  
+<br>  
+<div class="form-group row">  
+<label class="col-sm-1 col-form-label"></label>  
+<div class="col-sm-4">  
+<h3>Update Doctor Details</h3>  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">Doctor Id:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="id" id="id_id" required maxlength="20" value="{{ doctor.id }}"/>  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">Doctor Name:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="Doctor_name" id="id_Doctor_name" required maxlength="100" value="{{ doctor.Doctor_name }}" />  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">Address:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="address" id="id_address" required maxlength="254" value="{{ doctor.address }}" />  
+</div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">Contact:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="mobile" id="id_mobile" required maxlength="15" value="{{ doctor.mobile }}" />  
+</div>  
+</div> 
+<div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Department:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="department" id="id_department" required maxlength="15" value="{{ doctor.department }}" />  
+    </div>  
+    </div>  
+    <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Profile Pic:</label>  
+        <div class="col-sm-4">  
+            <input type="file" name="profile_pic" id="id_profile_pic"  value="{{ doctor.profile_pic }}" />  
+        </div>  
+        </div>    
+<div class="form-group row">  
+<label class="col-sm-1 col-form-label"></label>  
+<div class="col-sm-4">  
+<button type="submit" class="btn btn-success">Update</button>  
+</div>  
+</div>  
+</div>  
+</form>  
+</body>  
+{% endblock %}

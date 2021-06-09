@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'frontp2.css' %}"/>
+    <style>
+        .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #333;
+        padding: 10px 0;
+        color: #fff;
+        bottom: 0;
+    }
+
+    .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+    </style>
+
+</head>
+<div class="header">
+<h1>MEDICAL DIAGNOSTIC SYSTEM</h1>
+<h4 style="position: absolute ;left:1100px;top:40px;color:gray;">Call us@ 8219865320</h4>
+</div>
+<body>
+<div class="topnav">
+         <a href="/showd">Doctors</a>
+         <a href="/appointment">Book your appointment</a>
+         <a href="/showa">View/delete your appointments</a>
+         <a href="/showrep">Test Report </a>
+         
+         <a href="#" class="logout">Welcome {{user.first_name}}!</a>
+    <a href="/plogout" >logout</a>
+    
+</div>
+
+<div class="body-content">
+        {% block content %}
+        {% endblock %}
+</div>   
+
+</body>
+</html>
